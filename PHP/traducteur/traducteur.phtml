@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Traducteur</title>
+    
+</head>
+<body>
+    <header>
+        <h1>Traducteur Anglais - Français</h1>
+    </header>
+    <main>
+    	<form method="post" action="traducteur.php">
+    		<label for="word">Mot:</label>
+			<input id="word" type="text" name="word">
+			<button type='submit'>traduire</button>
+			
+			<p>
+			<label for="trad">Sens de traduction</label>
+			<select name="direction" >
+				<option value='toFrench'>anglais --> français</option>
+				<option value='toEnglish'>français -->anglais</option>
+			</select>	
+			</p>
+    	
+
+    	</form>
+
+
+    </main>
+
+    
+</body>
+</html>

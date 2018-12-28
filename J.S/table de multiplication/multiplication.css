@@ -1,0 +1,26 @@
+table td {
+	border:1px solid black;
+	background-color:#CFD414;
+	width:30px;
+	height: 30px;
+	text-align: center;
+}
+
+td:hover {
+	color:red;
+	background-color:white;
+	font-weight: bold;
+	width:35px;
+	height:35px;
+	position:absolute;
+	line-height: 1.75;
+	
+}
+
+
+
+
+.color {
+	background-color:#DD8D11;
+	color:white;
+}

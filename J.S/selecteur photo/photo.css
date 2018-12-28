@@ -1,0 +1,40 @@
+* {
+	  box-sizing: border-box;
+}
+
+
+
+body {
+	width:800px;
+}
+
+
+#photo-list {
+	display:flex;
+	flex-wrap: wrap;
+}
+
+li {
+	width:15%;
+	margin:1em;
+	padding:0.5em;
+	list-style: none;
+}
+
+li:hover {
+	background-color: silver;
+	border-radius: 8px; 
+}
+
+
+.cbien {
+	color:red;
+	font-weight: bold;
+	font-style:italic;
+}
+
+
+
+#photo-list li.selected {
+	background-color: forestgreen;
+}
