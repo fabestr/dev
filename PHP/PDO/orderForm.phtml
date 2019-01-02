@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="boncommande.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class='container'>
+        <h1>Bon de commande</h1>
+        <a href="boncommande.php">retourner à l'accueil </a>
+    
+    <article class='customer'>
+        <h2><?= $customer['customerName'] ?></h2>
+        <p><?= $customer['contactLastName'].''.$customer['contactFirstName']?></p>
+        <p><?= $customer['addressLine1'] ?></p>
+        <p><?= $customer['city'] ?></p>
+    </article>
+    </section>
+    <table class='container'>
+        <caption>Bon de commande n°<?= $_GET['orderNumber'] ?></caption>
+        <thead>
+            <tr>
+                <th class="color">Produit</th>
+                <th class="color">Prix unitaire</th>
+                <th class="color">Quantité</th>
+                <th class="color">Prix Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach($product as $index => $prod) : ?>
+            <tr>
+                <td><?= $prod['productName'] ?></td>
+                <td><?= $prod['priceEach'] ?></td>
+                <td><?= $prod['quantityOrdered'] ?></td>
+                <td><?= $prod['prixTotal'] ?></td>
+            </tr>
+            <?php endforeach ?>
+            <tr>
+                <td class="color right" colspan='3'>Montant Total HT </td>
+                <td class="color right"><?= $total['totalHT']?></td>
+            </tr>
+            <tr>
+            <td class="color right" colspan='3'>TVA (20%) </td>
+            <td class="color right"><?= $TVA = $total['totalHT']*0.20 ?></td>
+            </tr>
+            <tr>
+            <td class="color right" colspan='3'>Montant Total TTC</td>
+            <td class="color right"><?= $total['totalHT'] + $TVA ?></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="boncommande.css">
+    <title>Document</title>
+</head>
+<body>
+    <section class='container'>
+    <h1>Bons de commande</h1>
+    <table>
+        <caption>Liste des commandes</caption>
+        <thead>
+            <tr>
+            <th>commande</th>
+            <th>Date de commande</th>
+            <th>Date de livraison</th>
+            <th>Statut</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php foreach($orders as $order) { ?>
+            <tr>
+                <td> <a href='orderForm.php?orderNumber=<?= $order['orderNumber'] ?>'> <?= $order['orderNumber'] ?> </td>
+                <td> <?= $order['orderDate'] ?> </td>
+                <td> <?= $order['shippedDate'] ?> </td>
+                <td> <?= $order['status'] ?> </td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    </section>
+    
+</body>
+</html>

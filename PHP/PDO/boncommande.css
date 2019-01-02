@@ -1,0 +1,32 @@
+h1, .color {
+    color: darkcyan;
+    font-weight:bold;
+}
+
+.container {
+    max-width: 900px;
+    margin:auto;
+}
+
+
+table {
+    width:100%;
+    border-collapse: collapse;
+}
+
+td {
+    width:25%;
+    text-align: center;
+}
+
+table tr:nth-child(even){
+    background-color:gainsboro;
+  }
+
+caption {
+    font-weight:bold;
+}
+
+.right {
+    text-align: right;
+}
