@@ -1,0 +1,25 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#img {
+    position: relative;
+    left:-20px;
+    top:-20px;
+    float: left;
+}
+
+li {
+    list-style: none;
+}
+
+#details {
+    background-color: whitesmoke;
+    margin-bottom: 2em;
+}
+
+table,
+td {
+    border: solid black 1px;
+}

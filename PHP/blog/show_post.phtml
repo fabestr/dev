@@ -1,0 +1,47 @@
+
+<h2><i class="fa fa-file-text-o"></i> Article</h2>
+
+<section>
+    <h3><?= $articles['Title'] ?></h3>
+    <p><?= $articles['Contents'] ?></p>
+    <small>Rédigé par :<?= $articles['FirstName'].' '.$articles['LastName']?> le <?= $articles['CreationDate']?></small>
+
+</section>
+
+<hr>
+<ul>
+    <?php foreach($comments as $comment):?>
+    <li>
+        <h4>Rédigé par <?= $comment['Pseudo']?></h4>
+    </li>
+    <li>
+        <?= $comment['Contents'] ?>
+    </li>
+    <?php endforeach ?>
+</ul>
+    
+
+<hr>
+
+<form action="show_post.php?id=<?= $_GET['id']?>" method="POST">
+    <fieldset>
+        <legend><i class="far fa-comment"></i>Nouveau commentaire</legend>
+        <ul>
+            <li>
+                <label for="pseudo">Pseudo: </label>
+                <input id="pseudo" name="pseudo" type="text">
+            </li>
+            <li>
+                <label for="comments">Commentaire: </label>
+                <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+            </li>
+            <li>
+                <button class="button button-primary" type="submit">Ajouter</button>
+                <a class="button button-cancel" href="index.php">Annuler</a>
+            </li>
+        </ul>
+
+
+
+    </fieldset>
+</form>

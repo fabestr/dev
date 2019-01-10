@@ -1,0 +1,18 @@
+<h2><i class="fas fa-home"></i>Accueil</h2>
+
+
+<ul>
+    <?php foreach($posts as $post): ?>
+    <li>
+        <h3><a href="show_post.php?id=<?= $post['Id']?>"><strong><?= $post['Title'] ?></strong></a></h3>
+    </li>
+    <li>
+        <?= $post['Contents'] ?>
+    </li>
+    <li>
+        Rédigé par :<?= $post['FirstName'].' '.$post['LastName']?> le <?= $post['CreationDate']?>
+    </li>
+    <?php endforeach ?>
+
+    
+</ul>

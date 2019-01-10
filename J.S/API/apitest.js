@@ -78,11 +78,11 @@ function movieDetails(response) {
     $('#details').append('<ul style="list-style: none">');
     $('#details ul').append('<li><img src="'+url_img+response.backdrop_path+'"/></li><li>'+response.title+'</li><li>'+response.release_date+'</li><li>'+response.overview+'</li>');
 
-    for( var i = 0; i < response.production_companies.length; i++){
+   for( var i = 0; i < response.production_companies.length; i++){
         var idComp = response.production_companies[i].id;
-        $('#company').append('<li id="fab" data-id='+idComp+'><a href="">'+response.production_companies[i].name+'</a></li>');
+       
             
-         $.getJSON('https://api.themoviedb.org/3/company/'+dataComp+'?api_key='+API_KEY,displayCompany);
+         $.getJSON('https://api.themoviedb.org/3/company/'+idComp+'?api_key='+API_KEY,displayCompany);
        
 
         
@@ -92,12 +92,13 @@ function movieDetails(response) {
 
 function displayCompany (response){
     console.log(response);
+    $('#company').empty();
     $('#company').append('<ul style="list-style: none">');
-	$('#company').append('<li><a href="'+response.homepage+'" id="'+response.id+'">'+response.name+'</li></a>');
+	$('#company ul').append('<li><a href="'+response.homepage+'">'+response.name+' </a></li>');
     
 }
 
-$(document).on('click','li',myIdOnClick);
+$(document).on('click','.result li',myIdOnClick);
 
 
 /**********************************************************************/
