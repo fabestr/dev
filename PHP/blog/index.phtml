@@ -4,13 +4,13 @@
 <ul>
     <?php foreach($posts as $post): ?>
     <li>
-        <h3><a href="show_post.php?id=<?= $post['Id']?>"><strong><?= $post['Title'] ?></strong></a></h3>
+        <h3><a href="show_post.php?id=<?= $post['Id']?>"><strong><?= htmlspecialchars($post['Title']) ?></strong></a></h3>
     </li>
     <li>
-        <?= $post['Contents'] ?>
+        <?=  substr(htmlspecialchars($post['Contents']),0,20) ?>[...]
     </li>
     <li>
-        Rédigé par :<?= $post['FirstName'].' '.$post['LastName']?> le <?= $post['CreationDate']?>
+        Rédigé par :<?= htmlspecialchars($post['FirstName']).' '.htmlspecialchars($post['LastName'])?> le <?= htmlspecialchars($post['CreationDate'])?>
     </li>
     <?php endforeach ?>
 

@@ -1,3 +1,41 @@
+
+
+
 <h2><i class="fas fa-cogs"></i>Panneau de configuration</h2>
 
 <nav><a href="add_post.php">Rédiger un nouvel article</a></nav>
+
+<table>
+    <caption>Liste des articles</caption>
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Article</th>
+            <th>Auteur</th>
+            <th>Catégorie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($articles as $article):?>
+         <tr>
+            <td>
+                <a href="show_post.php?id=<?= $article['Id']?>"><?=$article['Title']?></a>
+            </td>
+            <td>
+                <?=$article['Contents']?>
+            </td>
+            <td>
+                <?=$article['FirstName'].' '.$article['LastName']?>
+            </td>
+            <td>
+                <?=$article['Name']?>
+            </td>
+            <td>
+                <a href="edit_post.php?id=<?= $article['Id']?>"><i class="fa fa-pencil"></i></a>
+                <a href="remove.php?id=<?= $article['Id']?>"><i class="fa fa-remove"></i></a>
+            </td>
+
+         </tr>    
+         <?php endforeach ?>      
+    </tbody>
+</table>
