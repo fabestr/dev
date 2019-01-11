@@ -19,10 +19,10 @@
         <?php foreach($articles as $article):?>
          <tr>
             <td>
-                <a href="show_post.php?id=<?= $article['Id']?>"><?=$article['Title']?></a>
+                <a href="show_post.php?id=<?= htmlspecialchars($article['Id'])?>"><?=htmlspecialchars($article['Title'])?></a>
             </td>
             <td>
-                <?=$article['Contents']?>
+                <?=htmlspecialchars($article['Contents'])?>
             </td>
             <td>
                 <?=$article['FirstName'].' '.$article['LastName']?>

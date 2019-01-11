@@ -2,8 +2,8 @@
 <h2><i class="fa fa-file-text-o"></i> Article</h2>
 
 <section>
-    <h3><?= $articles['Title'] ?></h3>
-    <p><?= $articles['Contents'] ?></p>
+    <h3><?= htmlspecialchars($articles['Title']) ?></h3>
+    <p><?= htmlspecialchars($articles['Contents']) ?></p>
     <small>Rédigé par :<?= $articles['FirstName'].' '.$articles['LastName']?> le <?= $articles['CreationDate']?></small>
 
 </section>
