@@ -26,7 +26,16 @@
     <header class="blog-header">
         <h1><a href="index.php"><i class="fa fa-microphone"></i> Encore un Blog ?! #nonMaisAllo</a></h1>
         <nav>
-            <a href="admin.php"><i class="fa fa-cogs"></i> Administration</a>
+        <?php if(array_key_exists('role',$_SESSION)== true){?>
+            <a href="logout.php">Se déconnecter</a>
+            <?php if($_SESSION['role']=='admin'){?>
+                <a href="admin.php"><i class="fa fa-cogs"></i> Administration</a>
+            <?php } ?>
+        <?php } ?>
+        <?php if(array_key_exists('firstName',$_SESSION) == false):?>
+            <a href="register.php">Créer un compte</a>
+            <a href="login.php">S'identifer</a>
+        <?php endif ?>
         </nav>
     </header>
 

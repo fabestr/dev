@@ -1,5 +1,9 @@
 <h2><i class="fas fa-home"></i>Accueil</h2>
+<?php if (array_key_exists( 'firstName', $_SESSION )):?>
+	
+    <p>bravo <?= $_SESSION['firstName'] ?> vous êtes connecté !</p>
 
+<?php endif ?>
 
 <ul>
     <?php foreach($posts as $post): ?>

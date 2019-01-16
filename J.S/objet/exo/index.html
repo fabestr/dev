@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fight</title>
+	<meta charset="utf-8">
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+</head>
+<body>
+    <div class="regle">
+        <h1>Règles</h1>
+        <p><strong>2 perso: </strong> Nom, PV , pts d'attaque, pts defense, pts magie</p>
+        <p><strong>attaque: </strong>retire des degats à l'autre perso: pv - ( attaque - defense)</p>
+        <p><strong>defense: </strong>ratio aleatoire de la defense actuelle et on l'additionne ( ne peut excéder 50%)</p>
+        <p><strong>sort: </strong>Complétement aléatoire aux points de magie restant</p>
+    </div>
+    <hr>
+	<div id="joueur">
+
+    </div>
+    <div id="alea">
+
+    </div>
+<button id="atq">ATTAQUE</button>
+<button id="def">DEFENSE</button>
+<button id="magie">SORT</button>
+</body>
+<script type="text/javascript" src="utilities.js"></script>
+
+<script type="text/javascript" src="combat.class.js"></script>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>

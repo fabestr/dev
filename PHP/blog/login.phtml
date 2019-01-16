@@ -1,0 +1,26 @@
+<h2>Qui êtes-vous?</h2>
+
+<?php if ($error == true ) {?>
+<div class="popup">
+    <p> <?= $message ?></p>
+</div>
+<?php } ?>
+
+<form class="generic-form" action="login.php" method="post">
+    <fieldset>
+    <legend>Identifiant</legend>
+        <ul>
+            <li>
+                <label for="email">Email : </label>
+                <input type="text" placeholder="email" name="email"/>
+            </li>    
+            <li>
+                <label for="password">Mot de passe : </label>
+                <input type="password" placeholder="password" name="psw"/>
+            </li>
+            <li>
+                <input type="submit" value="connection"/>
+            </li>
+        </ul>
+    </fieldset>
+</form>

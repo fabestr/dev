@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'application/bdd_connexion.php';
 
 $query = $pdo->prepare // requete SQL
@@ -19,8 +21,10 @@ $query->execute([$_GET['id']]);
 $articles = $query->fetch(PDO::FETCH_ASSOC);
 
 
+var_dump($articles);
 
 
+/***************************************************************** */
 
 if(empty($_POST)==false){
 
@@ -39,6 +43,9 @@ header('Location: show_post.php?id='.$_GET['id']);
 exit();
 
 }
+
+
+
 
 
 $query = $pdo->prepare // requete SQL

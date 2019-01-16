@@ -28,9 +28,16 @@ hr
     margin-top: 2em;
 }
 
+.popup {
+	border: 3px solid red;
+	width: 50%;
+	margin: auto;
+    margin-bottom: 64px;
+    border-radius: 10px;
+}
 
-table {
-    margin:auto;
-    width:80%;
+.popup p{
+	color: #01A2A6;
+    letter-spacing: 0.1em;
     text-align: center;
 }

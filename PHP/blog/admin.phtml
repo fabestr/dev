@@ -32,10 +32,141 @@
             </td>
             <td>
                 <a href="edit_post.php?id=<?= $article['Id']?>"><i class="fa fa-pencil"></i></a>
-                <a href="remove.php?id=<?= $article['Id']?>"><i class="fa fa-remove"></i></a>
+                <a href="remove.php?postId=<?= $article['Id']?>"><i class="fa fa-remove"></i></a>
             </td>
 
          </tr>    
          <?php endforeach ?>      
+    </tbody>
+</table>
+
+<hr>
+
+<table>
+    <caption>Liste des catégories</caption>
+    <thead>
+        <tr>
+            
+            <th>Catégorie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($categories as $category):?>
+         <tr>
+            <td>
+            <form action="edit_cat.php?id=<?= $category['Id']?>" method="post">
+                <input type="text" name="category" value="<?=htmlspecialchars($category['Name'])?>">
+                <button type="submit"><i class="fa fa-pencil"></i></button>
+            </form>
+            </td>
+            <td>
+                <a href="remove.php?catId=<?= $category['Id']?>"><i class="fa fa-remove"></i></a>
+            </td>
+
+         </tr>    
+         <?php endforeach ?>  
+         <tr>
+            <td colspan="3">
+            <form  action="add_category.php" method="POST">
+                
+                <legend>Ajouter une catégorie</legend>
+                
+                    
+                            <label for="category">Catégorie :</label>
+                            <input type="text" name="category" placeholder="Catégorie">
+                        
+                            <button type="submit">Enregistrer</button>
+                     
+                
+            </form>
+            </td>
+         </tr>    
+    </tbody>
+</table>
+
+<hr>
+
+<form class="generic-form" action="add_author.php" method="POST">
+<fieldset>
+    <legend>Ajouter un auteur</legend>
+        <ul>
+            <li>
+                <label for="firstName">Auteur :</label>
+                <input type="text" name="firstName" placeholder="Prénom">
+            </li>
+            <li>
+                <label for="lastName">Auteur :</label>
+                <input type="text" name="lastName" placeholder="Nom">
+            </li>
+            <li>
+                <button type="submit">Enregistrer</button>
+            </li>
+        </ul>
+</fieldset>
+</form>
+
+
+
+<table>
+    <caption>Liste des utilisateurs</caption>
+    <thead>
+        <tr>
+            <th>
+                Nom
+            </th>
+            <th>
+                Prénom
+            </th>
+            <th>
+                Pseudo
+            </th>
+            <th>
+                Mail
+            </th>
+            <th>
+                Rôle
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach($users as $user):?>
+        <tr>
+            <td>
+                <?= $user['LastName']  ?>
+            </td>
+            <td>
+                <?= $user['FirstName']  ?>
+            </td>
+            <td>
+                <?= $user['Pseudo']  ?>
+            </td>
+            <td>
+                <?= $user['Mail']  ?>
+            </td>
+            <form action="change_role.php" method="POST">
+                <input type="hidden" name="roleId" value="<?= $user['Id'] ?>">
+                    <td>
+                        <select name="role_select" id="role_select">
+                            <option value="admin"><?= $user['Role'] ?></option>
+
+                            <?php if ($user['Role'] == "admin"): ?>
+                            <option value="user">user</option>
+                            <?php endif ?>
+
+                            <?php if ($user['Role'] == "user"): ?>
+                            <option value="admin">admin</option>
+                            <?php endif ?>
+                        </select>
+                    </td>
+                    <td>
+                        <button><a href=""><i class="fas fa-pen"></i></a></button>
+                    </td>
+                    <td>
+                        <button><a href="delete_user.php?id=<?= $user['Id'] ?>"><i class="fas fa-times"></i></a></button>
+                    </td>
+            </form>
+
+                   </tr>
+               <?php endforeach ?>
     </tbody>
 </table>

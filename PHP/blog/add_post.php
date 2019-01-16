@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'application/bdd_connexion.php';
 
 $query = $pdo->prepare // requete SQL
