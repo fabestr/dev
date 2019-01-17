@@ -4,4 +4,4 @@
 var prog = new Program();
 
 
-console.log(prog);
+console.log('TEST',prog);

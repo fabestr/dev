@@ -1,0 +1,207 @@
+<!------------index.html------------------->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fight</title>
+	<meta charset="utf-8">
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+</head>
+<body>
+	<div id="affichage">
+		<p id="perso1"></p>
+		<p id="perso2"></p>
+	</div>
+	<div id="commande">
+		<button id="attaquer">Attaquer</button>
+		<button id="defendre">Défendre</button>
+		<button id="sort">Sort</button>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="js/lib.js"></script>
+<script type="text/javascript" src="js/classes/Perso.class.js"></script>
+<script type="text/javascript" src="js/classes/Program.class.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+
+<!------------js/lib.js------------------->
+<script>
+
+
+function getRandomInteger(min, max)
+{
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+</script>
+
+<!------------js/classes/Perso.class.js------------------->
+
+<script>
+
+var Perso = function(name, hp, attack, defense, magie) {
+	this.name = name;
+    this.hp = hp;
+	this.attack = attack;
+	this.defense = defense;
+	this.magie = magie;
+
+}
+
+
+Perso.prototype.attaquer = function(perso) {
+	var degats = this.attack - perso.defense;
+	
+    if (degats < 10) {
+		
+		console.log(perso.name +'ne sent plus rien....' );
+		degats = 10
+	}
+    
+    perso.hp -= degats
+	console.log(this.name +' Attaque, il enlève '+ degats + ' hp a '+ perso.name );
+
+	if  (perso.hp <= 0) {
+		perso.hp = 0;
+	}
+
+	console.log(perso.name +' a  '+ perso.hp+ ' hp' );
+
+}
+
+
+Perso.prototype.sort = function(perso) {
+
+	if (this.magie > 0) {
+		var degats = getRandomInteger(1, this.magie);
+		console.log(this.name +  ' jete un sort,il enlève '+ degats + ' hp a '+ perso.name);
+		perso.hp -= degats;
+		this.magie -=  degats;
+
+		if  (perso.hp <= 0) {
+			perso.hp = 0;
+		}
+		console.log(perso.name +' a  '+ perso.hp+ ' hp' );
+	} else {
+		console.log('Vous n avez plus de point de magie....')
+	}
+}
+
+
+Perso.prototype.defendre = function() {
+	var ratio =  Math.round(this.defense * Math.random());
+	console.log(this.name+' augmente sa defense de '+ ratio + ' point ');
+	this.defense += ratio/2;
+
+	console.log(this.name +'a une defense à :'+ this.defense);
+}
+
+
+
+</script>
+
+<!------------js/classes/Program.class.js------------------->
+<script>
+
+var Program = function(){
+	this.gege = new Perso('Gégé', 300, 50, 7, 120);
+	this.nanard = new Perso('Nanard', 280, 45, 18, 160);
+
+	this.affichage();
+    
+    $('#attaquer').on('click', this.onClickAttaque.bind(this));
+    $('#defendre').on('click', this.onClickDefense.bind(this));
+	$('#sort').on('click', this.onClickSort.bind(this));
+
+}
+
+Program.prototype.affichage = function() {
+	if(this.gege.hp > 0 && this.nanard.hp > 0) {
+    	
+		$('#perso1').text(this.gege.name+ ' : '+this.gege.hp+' HP, attaque : ' + this.gege.attack + ', defense : '+ this.gege.defense +', magie : '+ this.gege.magie);
+        
+		$('#perso2').text(this.nanard.name+ ' : '+this.nanard.hp+' HP, attaque : ' + this.nanard.attack + ', defense : '+ this.nanard.defense +', magie : '+ this.nanard.magie);
+        
+    } else {
+    	$('#commande').css('display', 'none');
+        
+		if(this.gege.hp > 0) {
+        
+        	$('#affichage').html('<p>Victoire de : '+this.gege.name+'</p>');
+
+        } else {
+        
+			$('#affichage').html('<p>Victoire de : '+this.nanard.name+'</p>');
+
+        
+        }
+    }	
+
+}
+
+Program.prototype.onClickAttaque = function(event) {
+	event.preventDefault();
+	this.gege.attaquer(this.nanard);
+    
+    this.affichage();
+
+}
+
+Program.prototype.onClickDefense = function(event) {
+	event.preventDefault();
+	this.gege.defendre();
+    
+    this.affichage();
+
+}
+
+Program.prototype.onClickSort = function(event) {
+	event.preventDefault();
+	if (this.gege.magie > 0) {
+		this.gege.sort(this.nanard);
+
+		this.affichage();
+	} else {
+		console.log('plus de points de magie, veuillez jouer autre chose');
+	}
+	
+}
+
+
+Program.prototype.contre = function() {
+	var random = getRandomInteger(1, 3);
+    
+    if (random == 1) {
+		this.nanard.attaquer(this.gege);
+	}else if((random == 2) {
+    	this.nanard.defendre();
+
+    } else {
+    	if(this.nanard.magie > 0) {
+			this.nanard.sort(this.gege);
+		} else {
+			console.log('Plus de points de magie, on change de technique');
+			this.contre();
+		}
+    }
+
+}
+
+</script>0
+
+<!------------js/main.js------------------->
+
+<script>
+
+var program = new Program();
+
+console.log(program);
+
+
+
+
+
+</script>

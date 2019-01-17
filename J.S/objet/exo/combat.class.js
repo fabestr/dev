@@ -15,6 +15,11 @@ var perso = function (name, pv, attaque, def, magie ) {
 perso.prototype.showUs = function () {
 
     $('#joueur').html('<p>Tu es: <strong>'+this.name+'</strong> avec <strong>'+this.pv+'</strong> de PV, <strong>'+this.attaque+'</strong> de pts d\'attaque, défense: <strong>'+this.def+'</strong> et magie: <strong>'+this.magie+'</strong></p>');
+
+    if(this.pv <= 0){
+        $('#button').addClass('hide');
+        $('.winner').html('<h1>Barth a perdu et part en pause fumer LA CLOPE!!!</h1><p><img src="'+bartLoose+'"></p>');
+    }
 }
 
 
@@ -22,6 +27,11 @@ perso.prototype.showUs = function () {
 perso.prototype.showChallenger = function () {
 
     $('#alea').html('<p>Tu combats: <strong>'+this.name+'</strong> avec <strong>'+this.pv+'</strong> de PV, <strong>'+this.attaque+'</strong> de pts d\'attaque, défense: <strong>'+this.def+'</strong> et magie: <strong>'+this.magie+'</strong></p>');
+    if(this.pv <= 0){
+        $('#button').addClass('hide');
+        $('.winner').removeClass('hide');
+        $('.winner').html('<h1>La clope a perdu et Barth retrouve sa bonne haleine!!!!</h1><p><img src="'+bartWin+'"></p>');
+    }
 }
 
 
@@ -33,12 +43,13 @@ perso.prototype.attaquer = function(victime) {
     var degat = this.attaque - victime.def;
     if (degat < 10) {
 		
-		console.log(perso.name +'ne sent plus rien....' );
+		console.log(victime.name +'ne sent plus rien....' );
 		degat = 10
 	}
-	victime.hp -= degat
+	victime.pv -= degat
 
     console.log(this.name+' attaque et retire '+degat+'HP à '+victime.name);
+    console.log(victime.name+' a : '+victime.pv+' hp');
     
 }
 
@@ -61,7 +72,8 @@ perso.prototype.sort = function(perso) {
 		this.magie -=  degats;
 		console.log(perso.name +' a  '+ perso.pv+ ' hp' );
 	} else {
-		console.log('Vous n avez plus de point de magie....')
+        console.log('Vous n avez plus de point de magie....');
+        this.attaquer(perso);
 	}
 
 }

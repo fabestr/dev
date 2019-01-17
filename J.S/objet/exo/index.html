@@ -3,10 +3,12 @@
 <head>
 	<title>fight</title>
 	<meta charset="utf-8">
-	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
+    
     <div class="regle">
         <h1>Règles</h1>
         <p><strong>2 perso: </strong> Nom, PV , pts d'attaque, pts defense, pts magie</p>
@@ -15,15 +17,27 @@
         <p><strong>sort: </strong>Complétement aléatoire aux points de magie restant</p>
     </div>
     <hr>
-	<div id="joueur">
+    <main class="container">
+    <div class="flex">
+        <div class="imgbart"><img width="100px" height="auto" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgVyblQIv2CXnoq1vcMgLkeli_RtM8AswPBVRT0cnjepMSPm-O" alt=""></div>
+	<div id="joueur" width="50%">
+        
+    </div>
+    <div class="imgclope"><img width="100px" height="auto" float="right"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgLKpY_DDATvzcOgV9LqaKRx4Tq0YiWtvGDsQxhwBNKIdZnKI2fg" alt=""></div>
+    <div id="alea" width="50%">
+        
 
     </div>
-    <div id="alea">
-
-    </div>
+</div>
+<div id="button">
 <button id="atq">ATTAQUE</button>
 <button id="def">DEFENSE</button>
 <button id="magie">SORT</button>
+</div>
+<div class="winner" class='hide'>
+
+</div>
+</main>
 </body>
 <script type="text/javascript" src="utilities.js"></script>
 
