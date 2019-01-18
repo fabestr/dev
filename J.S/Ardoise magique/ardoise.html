@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ardoise magique</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="ardoise.css">
+</head>
+<body>
+    <h1>Ardoise magique</h1>
+    <canvas id="slate" width="800" height="500"></canvas>
+    <canvas id="slate2" class="slate" width="640" height="480"></canvas>
+
+    <hr>
+<div class="palette">
+<ul>
+    <li>
+        <label for="">Outils</label>
+        <button id="erase"><i class="fas fa-eraser"></i></button>
+        <button id="chooseColor"><i class="fas fa-eye-dropper"></i></button>
+    </li>
+    <li>
+        <label for="">Couleurs</label>
+        <div class='pen-color' id="black"></div>
+        <div class='pen-color' id="brown"></div>
+        <div class='pen-color' id="red"></div>
+        <div class='pen-color' id="yellow"></div>
+        <div class='pen-color' id="green"></div>
+        <div class='pen-color' id="blue"></div>
+        <div class='pen-color' id="cyan"></div>
+    </li>
+    <li>
+        <label for="">Épaisseur</label>
+        <button id="fin">fin</button>
+        <button id="normal">normal</button>
+        <button id="epais">épais</button>
+    </li>
+</ul>
+
+</div>
+
+    
+</body>
+<script type="text/javascript" src="lib.js"></script>
+<script type="text/javascript" src="pen.class.js"></script>
+<script type="text/javascript" src="slate.class.js"></script>
+<script type="text/javascript" src="program.class.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>

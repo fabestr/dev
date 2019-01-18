@@ -1,0 +1,56 @@
+#slate,
+#slate2 {
+    border: solid 5px black;    
+}
+
+li {
+    margin:2em;
+    vertical-align: middle;
+    list-style: none;
+    height:2.5em;
+}
+
+
+label {
+    line-height: 2.5em;
+    width:100px;
+    display: inline-block;
+}
+
+.pen-color {
+    width:2em;
+    height:2em;
+    display: inline-block;
+    position: relative;
+    top:0.5em;
+    border-radius: 1em;
+
+}
+
+#black {
+    background-color: black;
+}
+
+#brown {
+    background-color: brown;
+}
+
+#red {
+    background-color: red;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#green {
+    background-color: green;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#cyan {
+    background-color: cyan;
+}
