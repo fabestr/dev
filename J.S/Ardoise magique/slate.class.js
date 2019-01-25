@@ -22,7 +22,7 @@ Slate.prototype.getMouseLocation = function(event)
     
 	var location = { x: event.clientX - offset.left, y: event.clientY - offset.top };
     
-    console.log(location);
+    //console.log(location);
 
     return location;
 

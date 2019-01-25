@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="ardoise.css">
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
 </head>
 <body>
     <h1>Ardoise magique</h1>
     <canvas id="slate" width="800" height="500"></canvas>
+    <canvas id="color-palette" class="color-palette hide" width="256" height="256"></canvas>
 
     <hr>
 <div class="palette">
@@ -19,7 +23,7 @@
     <li>
         <label for="">Outils</label>
         <button id="erase"><i class="fas fa-eraser"></i></button>
-        <button id="chooseColor"><i class="fas fa-eye-dropper"></i></button>
+        <button id="tool-color-picker" title="Pipette"><i class="fa fa-eyedropper"></i></button>   
     </li>
     <li>
         <label for="">Couleurs</label>
@@ -33,9 +37,9 @@
     </li>
     <li>
         <label for="">Épaisseur</label>
-        <button id="fin">fin</button>
-        <button id="normal">normal</button>
-        <button id="epais">épais</button>
+        <button class="pen-size" data-size="1">fin</button>
+        <button class="pen-size" data-size="2">normal</button>
+        <button class="pen-size" data-size="5">épais</button>
     </li>
 </ul>
 
@@ -46,6 +50,7 @@
 <script type="text/javascript" src="lib.js"></script>
 <script type="text/javascript" src="pen.class.js"></script>
 <script type="text/javascript" src="slate.class.js"></script>
+<script type="text/javascript" src="colorPalette.js"></script>
 <script type="text/javascript" src="program.class.js"></script>
 <script type="text/javascript" src="main.js"></script>
 </html>

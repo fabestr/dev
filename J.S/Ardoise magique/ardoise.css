@@ -54,3 +54,8 @@ label {
 #cyan {
     background-color: cyan;
 }
+
+
+.hide {
+    display: none;
+}
