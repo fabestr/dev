@@ -58,7 +58,12 @@ Basket.prototype.showOrder = function() {
    
 }
 
-Basket.prototype.deleteArticle = function(){
+Basket.prototype.deleteArticle = function(event){
+    event.preventDefault();
 
+    for( var i = 0; i < this.items.length ; i++){
+        var data = this.items[i].id;
+    }
+    
 
 }

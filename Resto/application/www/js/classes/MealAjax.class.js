@@ -2,7 +2,7 @@
 
 
 var MealAjax = function (){
-
+    this.request();
     $('#meal').on('change', this.request.bind(this));
     var basket=new Basket();
 }
@@ -21,6 +21,6 @@ MealAjax.prototype.callback = function(response){
 
     $('#showMeal img').attr('src',getWwwUrl()+'/images/meals/'+response.Photo);
     $('#showMeal p').text(response.Description);
-    $('#showMeal span strong').text(response.SalePrice+'€');
+    $('#showMeal span strong').text(parseFloat(response.SalePrice+'€'));
 
 }
