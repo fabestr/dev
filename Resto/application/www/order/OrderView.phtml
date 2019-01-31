@@ -1,0 +1,55 @@
+<h2>Passer une commande</h2>
+
+<form id="order-form" class="generic-form" a class="generic-form">
+<fieldset>
+<legend>Ajouter un article</legend>
+    <ul>
+        <li>
+            <label for="meal">Article</label>
+            <select name="meal" id="meal">
+            <?php foreach($meals as $meal ): ?>
+            <option value="<?= $meal['Id'] ?>"><?= $meal['Name'] ?> </option>
+            <?php endforeach ?>
+            </select>
+
+            <article class="meal-details no-left-label" id="showMeal">
+                <img src="<?= $wwwUrl ?>/images/meals/<?= $meal['Photo'] ?>" alt="">
+                <p><?= $meal['Description'] ?></p>
+                <span>
+                Prix :
+                <strong>
+                </strong>
+                </span>
+            </article>
+        </li>
+        <li>
+            <label for="quantity">Quantité: </label>
+            <input id="quantity" type="text">
+        </li>
+        <li>
+        <button id="add" class="button button-primary no-left-label" type="submit">Ajouter</button>
+        </li>
+    </ul>
+</fieldset>
+<fieldset>
+<legend>Récapitulatif de la commande</legend>
+    <section>
+        <table class="generic-table">
+            <thead>
+                <tr>
+                    <th class="number">Quantité</th>
+                    <th>Produit</th>
+                    <th class="number">Prix unitaire</th>
+                    <th class="number">Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="order-details">
+                
+            </tbody>
+        </table>
+    </section>
+</fieldset>
+</form>
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/classes/Basket.class.js"></script>
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/classes/MealAjax.class.js"></script>

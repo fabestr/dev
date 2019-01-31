@@ -1,0 +1,23 @@
+<h2>Seconnecter à un compte utilisateur</h2>
+
+<form action="<?= $requestUrl ?>/user/login" class="generic-form" method="post">
+    <fieldset>
+        <legend>Informations d'identification</legend>
+        <ul>
+            <li>
+                <label for="email">E-mail: </label>
+                <input name="email" type="text">
+            </li>
+            <li>
+                <label for="password">Mot de passe: </label>
+                <input name="password" type="text">
+            </li>
+        </ul>
+    </fieldset>
+    <ul>
+		<li>
+			<input class="button button-primary" type="submit" value="Connexion">
+			<a class="button button-cancel small" href="<?= $requestUrl?>">Annuler</a>
+		</li>
+	</ul>
+</form>

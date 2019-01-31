@@ -85,7 +85,7 @@ function saveContact(event) {
 
 function load() {
 
-    carnet = loadDataFromDomStorage('contact');
+    var carnet = loadDataFromDomStorage('contact');
     console.log(carnet);
     
     if(carnet == null)

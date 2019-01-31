@@ -1,0 +1,82 @@
+<h2>Création d'un compte client</h2>
+
+<form class="generic-form" method="post" action="<?= $requestUrl ?>/user/register">
+<fieldset>
+    <legend>Identité et coordonnées</legend>
+        <ul>
+            <li>
+                <label for="lastName">Nom: </label>
+                <input name="lastName" type="text">
+            </li>
+            <li>
+                <label for="firstName">Prénom: </label>
+                <input name="firstName" type="text">
+            </li>
+            <li>
+                <label for="birthDay">Date de naissance: </label>
+                <select name="birthDay" id="birthDay">
+                        <?php for($i=1; $i<=31;$i++):  ?>
+                            <option value="<?= $i ?>"><?= $i ?></option>
+                        <?php endfor ?>
+                </select>
+                <span> / </span>
+                <select name="birthMonth" id="birthMonth">
+                    <option value="1">Janvier</option>
+                    <option value="2">Février</option>
+                    <option value="3">Mars</option>
+                    <option value="4">Avril</option>
+                    <option value="5">Mai</option>
+                    <option value="6">Juin</option>
+                    <option value="7">Juillet</option>
+                    <option value="8">Août</option>
+                    <option value="9">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                </select>
+                <span> / </span>
+                <select name="birthYear" id="birthYear">
+                    <?php for($i = 1940; $i <=2019; $i++) :?>
+                    <option value="<?= $i ?>"><?= $i ?></option>
+                    <?php endfor ?>
+                </select>
+            </li>
+            <li>
+                <label for="address">Adresse: </label>
+                <textarea name="address" id="address" cols="30" rows="10"></textarea>
+            </li>
+            <li>
+                <label for="ville">Ville: </label>
+                <input name="ville" type="text">
+            </li>
+            <li>
+                <label for="zipCode">Code postal: </label>
+                <input name="zipCode" type="text">
+            </li>
+            <li>
+                <label for="phone">Téléphone</label>
+                <input name="phone" type="text">
+            </li>
+        </ul>
+</fieldset>
+
+<fieldset>
+    <legend>Informations d'identification</legend>
+    <ul>
+        <li>
+            <label for="email">Email: </label>
+            <input name="email" type="text">
+        </li>
+        <li>
+            <label for="password">Mot de passe: </label>
+            <input name="password" type="text">
+        </li>
+    </ul>
+</fieldset>
+<ul>
+		<li>
+			<input class="button button-primary" type="submit" value="Créer le compte">
+			<a class="button button-cancel small" href="<?= $requestUrl ?>">Annuler</a>
+		</li>
+	</ul>
+</form>
