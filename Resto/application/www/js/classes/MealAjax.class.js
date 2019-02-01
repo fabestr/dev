@@ -4,7 +4,7 @@
 var MealAjax = function (){
     this.request();
     $('#meal').on('change', this.request.bind(this));
-    var basket=new Basket();
+    var basket = new Basket();
 }
 
 

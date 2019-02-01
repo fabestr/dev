@@ -1,0 +1,30 @@
+<h2>Payer la commande</h2>
+
+<section class="invoice">
+<p><strong><?= $_SESSION['FirstName'].' '.$_SESSION['LastName'] ?></strong></p>
+<p><?= $_SESSION['Address'] ?></p>
+<p><?= $_SESSION['ZipCode'] ?><span class="city">  <?= $_SESSION['City']  ?></span> </p>
+</section>
+
+
+<table class="generic-table meal-list">
+    <caption>Récapitulatif de la commande</caption>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th class="number">Quantité</th>
+            <th class="number">Prix Unitaire</th>
+            <th class="number">Prix Total</th>
+        </tr>
+    </thead>
+    <tfoot id="orderTotal">
+
+    </tfoot>
+    <tbody id='orderPayment'>
+    
+    </tbody>
+
+
+
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/classes/Basket.class.js"></script>
+<script type="text/javascript" src="<?= $wwwUrl ?>/js/classes/Validate.class.js"></script>
