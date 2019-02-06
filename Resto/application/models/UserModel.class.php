@@ -77,6 +77,7 @@ class UserModel
             $_SESSION['City'] = $user['City'];
             $_SESSION['ZipCode'] = $user['ZipCode'];
             $_SESSION['Phone'] = $user['Phone'];
+            $_SESSION['Id'] = $user['Id'];
 
             
 

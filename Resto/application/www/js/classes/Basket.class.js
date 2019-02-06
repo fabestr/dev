@@ -14,8 +14,13 @@ Basket.prototype.load = function() {
     if (this.items == null) {
         this.items = [];
     }
+    if (document.location.href.indexOf('order') != -1 && document.location.href.indexOf('order/validate') == -1) {
 
-    this.showOrder();
+        this.showOrder();
+	} else {
+    
+    	this.showRecapOrder();
+    }
 }
 
 Basket.prototype.saveOrder = function(event){
@@ -81,3 +86,25 @@ Basket.prototype.deleteArticle = function(event){
     saveDataToDomStorage('order',this.items);
     this.showOrder();
 }
+
+
+Basket.prototype.showRecapOrder = function() {
+
+    var priceHT = 0;
+	$('.meal-list tbody').empty();
+     for (var i=0; i < this.items.length; i++) {
+        priceHT += parseFloat(this.items[i].quantity)*parseFloat(this.items[i].price);
+        
+        var tr = $('<tr>');
+        tr.append('<td><img src="'+this.items[i].photo+'" width="25%">'+this.items[i].name+'</td><td class="number">'+this.items[i].quantity+'</td><td class="number">'+this.items[i].price+'</td><td class="number">'+parseFloat(this.items[i].quantity)*parseFloat(this.items[i].price)+'</td>')
+        $('.meal-list tbody').append(tr);
+    }
+    
+    var tva = (priceHT*0.2).toFixed(2);
+    var ttc = (parseFloat(priceHT)+parseFloat(tva)).toFixed(2);
+    
+    $('#totalht').text(priceHT.toFixed(2)+' €');
+    $('#tva').text(tva+' €');
+    $('#totalttc').text(ttc+' €');
+}
+
