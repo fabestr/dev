@@ -34,11 +34,9 @@ class PaymentController
             $orders
         );
         
-        /*paiement par carte*/
-        
-        
-        
-       // $http->redirectTo('/success');
+
+       return [
+           'orderId' => $orderId
+       ];
     }
-    
 }

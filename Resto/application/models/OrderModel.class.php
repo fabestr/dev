@@ -4,6 +4,19 @@
 class OrderModel
 {   
 
+    public function findOrder($orderId){
+        $data = new Database();
+        $order = $data->queryOne(
+            'SELECT*
+            FROM
+            `Order`
+            WHERE
+            Id = ?',
+            [$orderId]
+        );
+        return $order;
+    }
+
 	public function validate($userId, array $orders)
     {
     	$database = new Database();
@@ -67,6 +80,8 @@ class OrderModel
                 $orderId
             ]
         );
+
+        return $orderId;
 
     }
 
